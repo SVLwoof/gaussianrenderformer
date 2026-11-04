@@ -20,9 +20,9 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.3 });
 document.querySelectorAll("video[data-autoplay]").forEach((v) => observer.observe(v));
 
-function copyBibTeX() {
-  const text = document.getElementById("bibtex-code").textContent;
-  const label = document.querySelector(".copy-bibtex-btn .copy-text");
+function copyBibTeX(button, id) {
+  const text = document.getElementById(id).textContent;
+  const label = button.querySelector(".copy-text");
   navigator.clipboard.writeText(text).then(() => {
     label.textContent = "Copied";
     setTimeout(() => { label.textContent = "Copy"; }, 2000);
